@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PLAYX HQ — Official Portfolio & Completed Works</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cyber-yellow: #FFD000;
+      --amber-gold: #FFAE00;
+      --pitch-black: #0A0A0A;
+      --dark-surface: #121212;
+      --dark-card: #181818;
+      --pure-white: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--pitch-black);
+      color: var(--pure-white);
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Sticky Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.95);
+      border-bottom: 3px solid var(--cyber-yellow);
+      padding: 14px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .brand-logo-container {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .playx-logo-img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.8));
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--pure-white);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyber-yellow);
+    }
+
+    .social-nav-btn {
+      background: transparent;
+      color: var(--cyber-yellow);
+      border: 2px solid var(--cyber-yellow);
+      padding: 6px 14px;
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .social-nav-btn svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+
+    .social-nav-btn:hover {
+      background: var(--cyber-yellow);
+      color: var(--pitch-black);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--cyber-yellow) 0%, var(--amber-gold) 100%);
+      color: var(--pitch-black);
+      padding: 84px 6%;
+      position: relative;
+      border-bottom: 6px solid var(--pitch-black);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    .hero-wrapper {
+      max-width: 1220px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow-badge {
+      display: inline-block;
+      background: var(--pitch-black);
+      color: var(--cyber-yellow);
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      padding: 6px 14px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(68px, 8.5vw, 114px);
+      line-height: 0.9;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      color: var(--pitch-black);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      color: var(--pitch-black);
+    }
+
+    .hero-description {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.65;
+      margin-bottom: 30px;
+      max-width: 580px;
+    }
+
+    .community-pill {
+      display: inline-block;
+      background: var(--pitch-black);
+      color: var(--cyber-yellow);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 2px;
+      padding: 14px 24px;
+      text-transform: uppercase;
+      box-shadow: 6px 6px 0px rgba(0,0,0,0.25);
+    }
+
+    .hero-poster-frame {
+      border: 5px solid var(--pitch-black);
+      box-shadow: 16px 16px 0px var(--pitch-black);
+      background: var(--pitch-black);
+      max-width: 420px;
+      margin-left: auto;
+      overflow: hidden;
+    }
+
+    .hero-poster-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Metrics Bar */
+    .metrics-bar {
+      background: var(--dark-surface);
+      border-bottom: 2px solid #262626;
+      padding: 44px 6%;
+    }
+
+    .metrics-grid {
+      max-width: 1220px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .metric-card {
+      background: var(--dark-card);
+      border: 2px solid #2C2C2C;
+      border-left: 6px solid var(--cyber-yellow);
+      padding: 24px;
+    }
+
+    .metric-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 54px;
+      color: var(--cyber-yellow);
+      line-height: 1;
+    }
+
+    .metric-label {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #D0D0D0;
+      margin-top: 6px;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 80px 6%;
+    }
+
+    .section-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 44px;
+      border-bottom: 2px solid #262626;
+      padding-bottom: 20px;
+    }
+
+    .section-eyebrow {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--cyber-yellow);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .section-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 5vw, 62px);
+      color: var(--pure-white);
+      letter-spacing: 2px;
+      line-height: 0.95;
+    }
+
+    .filter-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: transparent;
+      color: var(--pure-white);
+      border: 2px solid var(--cyber-yellow);
+      padding: 10px 18px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--cyber-yellow);
+      color: var(--pitch-black);
+    }
+
+    /* Works Grid */
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 28px;
+    }
+
+    .work-card {
+      background: var(--dark-card);
+      border: 2px solid #2E2E2E;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--cyber-yellow);
+      box-shadow: 8px 8px 0px var(--cyber-yellow);
+    }
+
+    .work-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .work-date {
+      background: var(--cyber-yellow);
+      color: var(--pitch-black);
+      font-weight: 900;
+      font-size: 11px;
+      padding: 4px 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .work-badge {
+      font-size: 11px;
+      font-weight: 800;
+      color: #AAAAAA;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .work-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 38px;
+      color: var(--pure-white);
+      letter-spacing: 1.5px;
+      line-height: 1.05;
+      margin-bottom: 8px;
+    }
+
+    .work-location {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--cyber-yellow);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .work-summary {
+      font-size: 14px;
+      color: #CCCCCC;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .work-deliverables {
+      border-top: 1px solid #2E2E2E;
+      padding-top: 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #999999;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Spotlight Section */
+    .spotlight-section {
+      background: var(--dark-surface);
+      border-top: 3px solid var(--cyber-yellow);
+      border-bottom: 3px solid var(--cyber-yellow);
+      padding: 80px 6%;
+    }
+
+    .spotlight-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .pillars-list {
+      list-style: none;
+      margin-top: 24px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .pillars-list li {
+      background: var(--dark-card);
+      border: 1px solid #2E2E2E;
+      border-left: 4px solid var(--cyber-yellow);
+      padding: 16px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #E0E0E0;
+    }
+
+    .pillars-list strong {
+      color: var(--cyber-yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .spotlight-brand-box {
+      border: 4px solid var(--cyber-yellow);
+      background: var(--pitch-black);
+      padding: 40px;
+      text-align: center;
+      box-shadow: 12px 12px 0px rgba(255, 208, 0, 0.2);
+    }
+
+    .spotlight-brand-box img {
+      max-height: 70px;
+      width: auto;
+      object-fit: contain;
+      margin-bottom: 16px;
+      filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.8));
+    }
+
+    /* Social Community Hub Card */
+    .social-hub-card {
+      margin-top: 20px;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .social-link-pill {
+      background: var(--cyber-yellow);
+      color: var(--pitch-black);
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      text-decoration: none;
+      border: 2px solid var(--cyber-yellow);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .social-link-pill svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .social-link-pill:hover {
+      background: transparent;
+      color: var(--cyber-yellow);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--cyber-yellow);
+      color: var(--pitch-black);
+      padding: 56px 6%;
+      text-align: center;
+      border-top: 6px solid var(--pitch-black);
+    }
+
+    .footer-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 54px);
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .footer-meta {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-social-btn {
+      background: var(--pitch-black);
+      color: var(--cyber-yellow);
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: 1px;
+      padding: 10px 20px;
+      text-decoration: none;
+      border: 2px solid var(--pitch-black);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-social-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .footer-social-btn:hover {
+      background: var(--pure-white);
+      color: var(--pitch-black);
+    }
+
+    @media (max-width: 900px) {
+      .hero-wrapper,
+      .spotlight-inner {
+        grid-template-columns: 1fr;
+      }
+      .hero-poster-frame {
+        margin: 0 auto;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#" class="brand-logo-container">
+      <!-- Your exact uploaded PlayX logo image -->
+      <img src="image.png" alt="PlayX HQ Logo" class="playx-logo-img" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#works">Completed Works</a></li>
+      <li><a href="#spotlight">Production Standards</a></li>
+      <li>
+        <a href="https://www.instagram.com/play_x.hq/" target="_blank" class="social-nav-btn">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram
+        </a>
+      </li>
+      <li>
+        <a href="https://discord.gg/Yu3jkjkKR" target="_blank" class="social-nav-btn">
+          <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+          Discord
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="hero-wrapper">
+      <div>
+        <span class="eyebrow-badge">OFFICIAL BRAND PORTFOLIO • PAST WORKS ARCHIVE</span>
+        <h1>WE STARTED IT<br>WE BUILD IT</h1>
+        <div class="hero-subtitle">WE'RE TAKING IT FURTHER</div>
+        <p class="hero-description">
+          PlayX HQ is Andhra Pradesh's premier grassroots offline LAN tournament organization and Telugu esports community builder—delivering zero-lag arenas, collegiate championships, and official watch parties across the state.
+        </p>
+        <div class="community-pill">
+          FREE FIRE MAX LAN EVENTS &nbsp;•&nbsp; TELUGU ESPORTS COMMUNITY
+        </div>
+      </div>
+
+      <div class="hero-poster-frame">
+        <img src="8_20261020_123520_0000.jpg" alt="PlayX We Started It We Build It Official Graphic" />
+      </div>
+    </div>
+  </header>
+
+  <!-- METRICS BAR -->
+  <section class="metrics-bar">
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number">6+ WORKS</div>
+        <div class="metric-label">Completed 2026 LANs & Events</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">4+ REGIONS</div>
+        <div class="metric-label">Bhimavaram, Vizianagaram, Vaddeswaram & Hubs</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">ZERO-LAG</div>
+        <div class="metric-label">Verified Offline Floor Refereeing</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">PX STUDIO</div>
+        <div class="metric-label">In-House Visuals & Production</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLETED WORKS ARCHIVE -->
+  <main id="works" class="container">
+    <div class="section-top">
+      <div>
+        <div class="section-eyebrow">OUR EXECUTED TRACK RECORD</div>
+        <h2 class="section-heading">COMPLETED 2026 EVENT ARCHIVE</h2>
+      </div>
+
+      <div class="filter-controls">
+        <button class="filter-btn active" onclick="filterPortfolio('all', this)">All Completed (6)</button>
+        <button class="filter-btn" onclick="filterPortfolio('lan', this)">City & Campus LANs</button>
+        <button class="filter-btn" onclick="filterPortfolio('watch', this)">Watch Parties</button>
+      </div>
+    </div>
+
+    <div class="works-grid" id="portfolioGrid">
+      <article class="work-card" data-type="lan">
+        <div>
+          <div class="work-header">
+            <span class="work-date">OCTOBER 2026</span>
+            <span class="work-badge">OFFLINE CITY LAN</span>
+          </div>
+          <h3 class="work-title">BHIMAVARAM CITY CHAMPIONSHIP</h3>
+          <div class="work-location">📍 Bhimavaram, Andhra Pradesh</div>
+          <p class="work-summary">
+            Flagship city-level offline Free Fire MAX LAN championship uniting top regional squads in a physical arena setting with custom hyper-local regional branding by PX Studio.
+          </p>
+        </div>
+        <div class="work-deliverables">✔ Full Bracket Ops • ✔ Stage Branding • ✔ Trophies</div>
+      </article>
+
+      <article class="work-card" data-type="watch">
+        <div>
+          <div class="work-header">
+            <span class="work-date">SEPTEMBER 2026</span>
+            <span class="work-badge">COMMUNITY WATCH PARTY</span>
+          </div>
+          <h3 class="work-title">TEZ FFMIC FALL WATCH PARTY</h3>
+          <div class="work-location">📍 Regional Hub, Andhra Pradesh</div>
+          <p class="work-summary">
+            Official community screening and live fan gathering celebrating the Free Fire MAX India Cup Fall Split with live crowd reactions and creator meetups.
+          </p>
+        </div>
+        <div class="work-deliverables">✔ Live Screening • ✔ Crowd Engagement • ✔ Creator Collab</div>
+      </article>
+
+      <article class="work-card" data-type="lan">
+        <div>
+          <div class="work-header">
+            <span class="work-date">SEPTEMBER 2026</span>
+            <span class="work-badge">OFFLINE LAN</span>
+          </div>
+          <h3 class="work-title">LAKSHYA 2047 ESPORTS ARENA</h3>
+          <div class="work-location">📍 Regional Campus Hub, Andhra Pradesh</div>
+          <p class="work-summary">
+            Structured multi-squad collegiate LAN showdown featuring a full multi-map Battle Royale point circuit, on-floor marshals, physical trophies, and merit certificates.
+          </p>
+        </div>
+        <div class="work-deliverables">✔ On-Site Marshals • ✔ Point Tables • ✔ Certificates</div>
+      </article>
+
+      <article class="work-card" data-type="watch">
+        <div>
+          <div class="work-header">
+            <span class="work-date">APRIL 2026</span>
+            <span class="work-badge">COMMUNITY LAN & WATCH PARTY</span>
+          </div>
+          <h3 class="work-title">FFMIC SPRING WATCH PARTY</h3>
+          <div class="work-location">📍 Regional Cafe Venue, Andhra Pradesh</div>
+          <p class="work-summary">
+            High-energy Spring split fan fest combining live tournament broadcast viewing with on-the-spot Free Fire MAX community challenges and player giveaways.
+          </p>
+        </div>
+        <div class="work-deliverables">✔ Venue Takeover • ✔ Giveaways • ✔ Custom Lobbies</div>
+      </article>
+
+      <article class="work-card" data-type="lan">
+        <div>
+          <div class="work-header">
+            <span class="work-date">MARCH 2026</span>
+            <span class="work-badge">OFFLINE CAMPUS LAN</span>
+          </div>
+          <h3 class="work-title">ASCENSION CUP 2026</h3>
+          <div class="work-location">📍 MVGR College, Vizianagaram</div>
+          <p class="work-summary">
+            Major collegiate offline campus LAN championship hosted at MVGR College of Engineering, drawing top student guilds across North Andhra for an intense bracket showdown.
+          </p>
+        </div>
+        <div class="work-deliverables">✔ Collegiate Arena • ✔ Anti-Cheat • ✔ Hardware Trophies</div>
+      </article>
+
+      <article class="work-card" data-type="lan">
+        <div>
+          <div class="work-header">
+            <span class="work-date">FEBRUARY 2026</span>
+            <span class="work-badge">UNIVERSITY & COMMUNITY CIRCUIT</span>
+          </div>
+          <h3 class="work-title">KL WARZONE S1 & SAKURA WARRIORS CUP</h3>
+          <div class="work-location">📍 KL University, Vaddeswaram & Hubs</div>
+          <p class="work-summary">
+            Back-to-back February tournament executions kicking off PlayX HQ's 2026 calendar with our flagship university LAN at KLU Vaddeswaram and the Sakura Warriors Cup.
+          </p>
+        </div>
+        <div class="work-deliverables">✔ University LAN • ✔ Dual Execution • ✔ Guild Network</div>
+      </article>
+    </div>
+  </main>
+
+  <!-- SPOTLIGHT SECTION -->
+  <section id="spotlight" class="spotlight-section">
+    <div class="spotlight-inner">
+      <div>
+        <div class="section-eyebrow">VISUALS BY PX STUDIO • OPERATIONAL PILLARS</div>
+        <h2 class="section-heading" style="margin-bottom: 18px;">
+          ROBUST INFRASTRUCTURE & TECHNICAL EXECUTION
+        </h2>
+        <p style="font-size: 15px; color: #CCCCCC; line-height: 1.65;">
+          Every PlayX HQ event combines unmistakable <strong>Cyber Yellow & Pitch Black</strong> visual design by PX Studio with reliable technical architecture.
+        </p>
+
+        <ul class="pillars-list">
+          <li><strong>Backend Infrastructure:</strong> Fully maintained backend architecture managing registration databases, verification workflows, and match scoring pipelines.</li>
+          <li><strong>Cultural Identity:</strong> Custom posters blending iconic Andhra Pradesh landmarks with official Free Fire MAX visuals.</li>
+          <li><strong>Physical Recognition:</strong> Custom stage backdrops, championship hardware, and Gold/Silver/Bronze merit certificates.</li>
+        </ul>
+      </div>
+
+      <div class="spotlight-brand-box">
+        <img src="image.png" alt="PlayX Logo" />
+        <div style="font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px; color: var(--pure-white); margin-bottom: 12px;">
+          JOIN OUR COMMUNITY
+        </div>
+        <div class="social-hub-card">
+          <a href="https://www.instagram.com/play_x.hq/" target="_blank" class="social-link-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Instagram
+          </a>
+          <a href="https://discord.gg/Yu3jkjkKR" target="_blank" class="social-link-pill">
+            <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            Discord
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-title">
+      PLAYX — WHERE THE COMMUNITY MEETS COMPETITION
+    </div>
+    <div class="footer-meta">
+      Operations &amp; Management &nbsp;&bull;&nbsp; Backend Maintained &nbsp;&bull;&nbsp; Visuals by PX Studio
+    </div>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/play_x.hq/" target="_blank" class="footer-social-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram (@play_x.hq)
+      </a>
+      <a href="https://discord.gg/Yu3jkjkKR" target="_blank" class="footer-social-btn">
+        <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+        Discord Community
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    function filterPortfolio(category, button) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      document.querySelectorAll('.work-card').forEach(card => {
+        if (category === 'all' || card.getAttribute('data-type') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
